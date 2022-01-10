@@ -6,60 +6,71 @@
 /*   By: gborne <gborne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 18:17:20 by gborne            #+#    #+#             */
-/*   Updated: 2022/01/10 17:39:13 by gborne           ###   ########.fr       */
+/*   Updated: 2022/01/10 17:52:33 by gborne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_fill_tab(char **tab, char *s, char c)
+int	wordcount(char const *s, char c)
 {
-	unsigned long	i;
-	unsigned long	len;
-	unsigned long	div;
+	int	i;
+	int	words;
 
-	i = -1;
-	len = 0;
-	div = -1;
-	while (s[++i])
+	i = 0;
+	words = 0;
+	while (s[i])
 	{
-		if (s[i] != c && ++len && (s[i + 1] == c || !s[i + 1]))
-		{
-			*tab = ft_substr(s, i - len + 1, len);
-			if (!*tab)
-			{
-				while (tab[++div])
-					free(tab[div]);
-				free(tab);
-			}
-			len = 0;
-			tab++;
-		}
+		while (s[i] == c)
+			i++;
+		if (s[i] != c && s[i])
+			words++;
+		while (s[i] != c && s[i])
+			i++;
 	}
+	return (words);
+}
+
+char	*no_charset(char const *s, char c)
+{
+	int		i;
+	char	*str;
+
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	str = malloc(sizeof(char) * (i + 1));
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, s, i + 1);
+	return (str);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	unsigned long	i;
-	unsigned long	div;
-	char			*buff;
-	char			**tab;
+	int		i;
+	int		len;
+	char	**str;
 
+	if (!s)
+		return (NULL);
+	len = wordcount(s, c);
+	str = malloc(sizeof(char *) * (len + 1));
+	if (!str)
+		return (NULL);
 	i = -1;
-	div = 1;
-	buff = ft_strtrim(s, &c);
-	if (!buff)
-		return (NULL);
-	if (ft_strlen(buff))
-		div++;
-	while (buff[++i])
-		if (buff[i] == c && buff[i + 1] != c)
-			div++;
-	tab = (char **)ft_calloc(div, sizeof(char *));
-	if (!tab)
-		return (NULL);
-	tab[--div] = NULL;
-	ft_fill_tab(tab, buff, c);
-	free(buff);
-	return (tab);
+	while (++i < len)
+	{
+		while (*s == c)
+			s++;
+		str[i] = no_charset(s, c);
+		if (!str[i])
+		{
+			free(str);
+			return (NULL);
+		}
+		s += ft_strlen(str[i]);
+	}
+	str[i] = 0;
+	return (str);
 }
