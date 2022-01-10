@@ -6,7 +6,7 @@
 /*   By: gborne <gborne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:16:11 by gborne            #+#    #+#             */
-/*   Updated: 2022/01/10 16:20:00 by gborne           ###   ########.fr       */
+/*   Updated: 2022/01/10 17:04:50 by gborne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ static size_t	n_len(int n)
 	return (len);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	char		*a;
-	unsigned	un;
-	size_t		len;
+	char			*a;
+	unsigned int	un;
+	size_t			len;
 
 	len = n_len(n);
 	if (n < 0)
