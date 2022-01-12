@@ -6,7 +6,7 @@
 /*   By: gborne <gborne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 18:17:20 by gborne            #+#    #+#             */
-/*   Updated: 2022/01/12 01:32:57 by gborne           ###   ########.fr       */
+/*   Updated: 2022/01/12 01:38:36 by gborne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdarg.h>
+
+# define BUFFER_SIZE 1024
 
 //		list related fonctions
 
@@ -86,25 +88,21 @@ void			ft_putstr_fd(char *s, int fd);
 
 //		ft_printf
 
-int	ft_printf(const char *format, ...);
-int	ft_putchar_printf(char c, int size);
-int	ft_putstr_printf(char *s, int size);
-int	ft_putnbr_printf(int n, int size);
-int	ft_putunbr_printf(unsigned int n, int size);
-int	ft_puthexa_printf(unsigned long n, char *base, int size);
+int				ft_printf(const char *format, ...);
+int				ft_putchar_printf(char c, int size);
+int				ft_putstr_printf(char *s, int size);
+int				ft_putnbr_printf(int n, int size);
+int				ft_putunbr_printf(unsigned int n, int size);
+int				ft_puthexa_printf(unsigned long n, char *base, int size);
 
 //		get_next_line
 
-char	*get_next_line(int fd);
-char	*treat_mem(char *mem);
-char	*treat_line(char *mem, char *line);
-size_t	s_len(const char *s);
-size_t	s_lcpy(char *dst, const char *src, size_t dstsize);
-char	*s_chr(const char *s, int c, int next);
-char	*s_ljoin(char *s1, char *s2, size_t s1_len, size_t s2_len);
+char			*get_next_line(int fd);
+char			*treat_mem(char *mem);
+char			*treat_line(char *mem, char *line);
+size_t			s_len(const char *s);
+size_t			s_lcpy(char *dst, const char *src, size_t dstsize);
+char			*s_chr(const char *s, int c, int next);
+char			*s_ljoin(char *s1, char *s2, size_t s1_len, size_t s2_len);
 
-#endif
-
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1000
 #endif

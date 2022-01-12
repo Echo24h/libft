@@ -6,7 +6,7 @@
 /*   By: gborne <gborne@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 18:17:20 by gborne            #+#    #+#             */
-/*   Updated: 2022/01/12 01:28:59 by gborne           ###   ########.fr       */
+/*   Updated: 2022/01/12 01:35:30 by gborne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,19 @@ int	ft_sort_printf(va_list *arg, char type, int size)
 	else if (type == 'p')
 	{
 		size = ft_putstr_printf("0x", size);
-		size = ft_puthexa_printf(va_arg(*arg, uintptr_t), "0123456789abcdef", size);
+		size = ft_puthexa_printf(va_arg(*arg, uintptr_t),
+				"0123456789abcdef", size);
 	}
 	else if (type == 'd' || type == 'i')
 		size = ft_putnbr_printf(va_arg(*arg, int), size);
 	else if (type == 'u')
 		size = ft_putunbr_printf(va_arg(*arg, unsigned int), size);
 	else if (type == 'x')
-		size = ft_puthexa_printf(va_arg(*arg, unsigned int), "0123456789abcdef", size);
+		size = ft_puthexa_printf(va_arg(*arg, unsigned int),
+				"0123456789abcdef", size);
 	else if (type == 'X')
-		size = ft_puthexa_printf(va_arg(*arg, unsigned int), "0123456789ABCDEF", size);
+		size = ft_puthexa_printf(va_arg(*arg, unsigned int),
+				"0123456789ABCDEF", size);
 	else if (type == '%')
 		size = ft_putchar_printf('%', size);
 	return (size);
