@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdarg.h>
+# include <stdint.h>
 
 # define BUFFER_SIZE 1024
 
