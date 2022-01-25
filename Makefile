@@ -6,7 +6,7 @@
 #    By: gborne <gborne@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/09 18:17:20 by gborne            #+#    #+#              #
-#    Updated: 2022/01/12 01:26:09 by gborne           ###   ########.fr        #
+#    Updated: 2022/01/25 03:06:43 by gborne           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ FILES = ft_memset \
 		ft_strrchr \
 		ft_strnstr \
 		ft_strncmp \
+		ft_strcmp \
 		ft_atoi \
 		ft_itoa \
 		ft_isalpha \
@@ -47,6 +48,8 @@ FILES = ft_memset \
 		ft_strtrim \
 		ft_split \
 		ft_strmapi \
+		ft_putchar \
+		ft_putnbr \
 		ft_putchar_fd \
 		ft_putstr_fd \
 		ft_putendl_fd \
