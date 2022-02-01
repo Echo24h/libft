@@ -19,7 +19,9 @@
 # include <stdarg.h>
 # include <stdint.h>
 
-# define BUFFER_SIZE 1024
+# define BUFFER_SIZE	1024
+# define INT_MAX	2147483647
+# define INT_MIN	-2147483648
 
 //		list related fonctions
 
